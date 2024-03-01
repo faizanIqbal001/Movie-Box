@@ -25,6 +25,9 @@ class _SignupState extends State<Signup> {
 
   bool loadingOnSignup = false;
 
+  bool showPassword = true;
+  bool showConfirmPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,6 +121,31 @@ class _SignupState extends State<Signup> {
                       horizontalPaddingToTextField: 10,
                       textInputType: TextInputType.text,
                       textInputColor: Colors.black,
+                      obscureText: showPassword,
+                      showSuffixIcon: true,
+                      suffixIcon: showPassword
+                          ? GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  showPassword = !showPassword;
+                                });
+                              },
+                              child: const Icon(
+                                Icons.visibility_off,
+                                color: Colors.white,
+                              ),
+                            )
+                          : GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  showPassword = !showPassword;
+                                });
+                              },
+                              child: const Icon(
+                                Icons.remove_red_eye,
+                                color: Colors.white,
+                              ),
+                            ),
                       validation: (value) {
                         return null;
                       },
@@ -133,6 +161,31 @@ class _SignupState extends State<Signup> {
                       horizontalPaddingToTextField: 10,
                       textInputType: TextInputType.text,
                       textInputColor: Colors.black,
+                      obscureText: showConfirmPassword,
+                      showSuffixIcon: true,
+                      suffixIcon: showConfirmPassword
+                          ? GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  showConfirmPassword = !showConfirmPassword;
+                                });
+                              },
+                              child: const Icon(
+                                Icons.visibility_off,
+                                color: Colors.white,
+                              ),
+                            )
+                          : GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  showConfirmPassword = !showConfirmPassword;
+                                });
+                              },
+                              child: const Icon(
+                                Icons.remove_red_eye,
+                                color: Colors.white,
+                              ),
+                            ),
                       validation: (value) {
                         return null;
                       },

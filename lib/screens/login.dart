@@ -19,6 +19,8 @@ class _LoginState extends State<Login> {
 
   bool loadingOnLogin = false;
 
+  bool showPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +74,31 @@ class _LoginState extends State<Login> {
               focusNode: passwordFocusNode,
               descriptionController: passwordController,
               labelText: 'Password',
+              obscureText: showPassword,
+              showSuffixIcon: true,
+              suffixIcon: showPassword
+                  ? GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          showPassword = !showPassword;
+                        });
+                      },
+                      child: const Icon(
+                        Icons.visibility_off,
+                        color: Colors.white,
+                      ),
+                    )
+                  : GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          showPassword = !showPassword;
+                        });
+                      },
+                      child: const Icon(
+                        Icons.remove_red_eye,
+                        color: Colors.white,
+                      ),
+                    ),
               horizontalPaddingToTextField: 10,
               textInputType: TextInputType.text,
               textInputColor: Colors.black,

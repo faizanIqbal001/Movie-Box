@@ -12,6 +12,7 @@ class CommonTextField extends StatelessWidget {
   final FocusNode focusNode;
   final int? maxLine;
   final bool isEnabled;
+  final bool obscureText;
   final bool? readOnly;
   final bool showSuffixIcon;
   final double horizontalPaddingToTextField;
@@ -52,6 +53,7 @@ class CommonTextField extends StatelessWidget {
     this.onFieldSubmitted,
     this.showSuffixIcon = false,
     this.onTap,
+    this.obscureText = false,
     this.textAlign,
     this.suffixIcon,
     this.readOnly,
@@ -88,7 +90,7 @@ class CommonTextField extends StatelessWidget {
               scrollPadding: EdgeInsets.zero,
               inputFormatters: inputFormatters ?? [],
               onTap: onTap,
-              maxLines: maxLine,
+             //  maxLines: maxLine,
               maxLength: maxLength,
               textAlign: textAlign ?? TextAlign.start,
               controller: descriptionController,
@@ -127,6 +129,7 @@ class CommonTextField extends StatelessWidget {
                         )
                     : null,
               ),
+              obscureText: obscureText,
               keyboardType: textInputType,
               textInputAction: textInputAction ?? TextInputAction.done,
               focusNode: focusNode,
